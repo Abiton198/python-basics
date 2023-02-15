@@ -592,20 +592,48 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 
 ####### EXCEPTIONS ---TRY/EXCEPT & RAISE
 # for handling errors in a code
-try:
-    num = float(input('Enter a num between 1-30:'))
-    num1 = 30/num #code you want to run
-    if num > 30:
-        raise ValueError(num)
-except ZeroDivisionError as err:   #executed if error occurs
-    print(err, 'Can\'t divide number by zero!')
-except ValueError as err:
-    print(err,'Bad value! Enter number between 1-30')
-except:
-    print('Invalid input')
-else: # code we want to run
-    print("30 divided by",num, "is: ", 30/num)
-finally:  #always executed 
-    print('Thank you for playing')
+# try:
+#     num = float(input('Enter a num between 1-30:'))
+#     num1 = 30/num #code you want to run
+#     if num > 30:
+#         raise ValueError(num)
+# except ZeroDivisionError as err:   #executed if error occurs
+#     print(err, 'Can\'t divide number by zero!')
+# except ValueError as err:
+#     print(err,'Bad value! Enter number between 1-30')
+# except:
+#     print('Invalid input')
+# else: # code we want to run
+#     print("30 divided by",num, "is: ", 30/num)
+# finally:  #always executed 
+#     print('Thank you for playing')
+
+########## CLASSES AND OBJECT ################
+
+#Classes are blueprints
+#Objects are the actual things you built
+#variables => attributes
+#functions => methods
+class Movie:
+    def __init__(self, name,title,year): # self === this in JS - works the same
+        self.name = name 
+        self.title = title
+        self.year = year
+
+    def nice_print(self):
+        print('name: ', self.name)
+        print('title: ', self.title)
+        print('year: ', self.year)
+
+film1 = Movie('Lenardo Di Caprio', 'Titanic', '1999')
+film2 = Movie('Sandra Sosora', 'Wakanda 3', '2019')
+
+films = [film1, film2]
+print(films[0].name, films[1].name) # print out selected items in array
+film1.nice_print() # print everything 
+
+
+        
+
 
     
