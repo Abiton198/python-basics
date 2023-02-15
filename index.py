@@ -519,42 +519,73 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 # as in all games there is a special way to do this that actually makes money and solves the problem...can you find 'them'? Do you know why? May require knowledge of actual python 'lore'
 #create stores
 
-freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus diccus':100, 'grim reaper':500, 'minstrel':-15}
-antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
-pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
+# freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus diccus':100, 'grim reaper':500, 'minstrel':-15}
+# antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
+# pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 
-#morning inventory -updating the inventory before the purchases
-department_store = {}
-for department in (freelancers, antiques, pet_shop) :department_store.update(department)
-department_store.pop('name')
-print('Morning inventory of stores', sorted(department_store.items()))
-print('-----------------')
+# #morning inventory -updating the inventory before the purchases
+# department_store = {}
+# for department in (freelancers, antiques, pet_shop) :department_store.update(department)
+# department_store.pop('name')
+# print('Morning inventory of stores', sorted(department_store.items()))
+# print('-----------------')
 
-#create an dempty shopping cart
-cart = {}
-#create a purse
-purse = 1000
+# #create an dempty shopping cart
+# cart = {}
+# #create a purse
+# purse = 1000
 
-buy_item1 = ''
-#loop through stores/dicts
-for shop in (freelancers, antiques, pet_shop):
-    #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}').lower()
-    # Condition when one try to buy nonexistant product- should allow  to exit to next shop
-    if buy_item == 'exit':
-        continue
-    if buy_item not in shop:
-        continue
+# buy_item1 = ''
+# #loop through stores/dicts
+# for shop in (freelancers, antiques, pet_shop):
+#     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
+#     buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}').lower()
+#     # Condition when one try to buy nonexistant product- should allow  to exit to next shop
+#     if buy_item == 'exit':
+#         continue
+#     if buy_item not in shop:
+#         continue
 
-    #update the string
-    buy_item1 = buy_item1 + f'{buy_item}:{shop[buy_item]} Gp,'
-    #update the cart
-    cart.update({buy_item:shop.pop(buy_item)}) # use pop...
-    # item = ", ".join(list(cart.keys())) #only for keys but with no values
+#     #update the string
+#     buy_item1 = buy_item1 + f'{buy_item}:{shop[buy_item]} Gp,'
+#     #update the cart
+#     cart.update({buy_item:shop.pop(buy_item)}) # use pop...
+#     # item = ", ".join(list(cart.keys())) #only for keys but with no values
 
-print(f'You Purchased: {buy_item1}. Your total amount is {sum(cart.values())}Gp. Your change is {purse - sum(cart.values())}Gp. Have a nice day of mayhem!')
-#evening inventory ---after all purchases done and items removed
-department_store_after = {**freelancers, **antiques, **pet_shop} #pyth 3.5
-department_store_after.pop('name')
-print('-----------------')
-print('Evening inventory of stores', sorted(department_store_after.items()))
+# print(f'You Purchased: {buy_item1}. Your total amount is {sum(cart.values())}Gp. Your change is {purse - sum(cart.values())}Gp. Have a nice day of mayhem!')
+# #evening inventory ---after all purchases done and items removed
+# department_store_after = {**freelancers, **antiques, **pet_shop} #pyth 3.5
+# department_store_after.pop('name')
+# print('-----------------')
+# print('Evening inventory of stores', sorted(department_store_after.items()))
+
+############FILE HANDLING #####################
+#------METHOD 1 -----
+# import os
+# my_file = open('greetings.txt','r') #r -read, w - write, a - append, x-create, t - text, b- binary(images)
+# print(my_file.read()) #brings everything
+# print(my_file.readline()) #bring number of words stated
+# print(my_file.readline())
+
+# line_by_line = my_file.readlines() #changing a lines into one string = readlines /splitlines
+# line_by_line1 = my_file.read().splitlines()
+# print('readlines: ', line_by_line)
+# print('splitliness: ',line_by_line1)
+# my_file.close()
+
+# ------METHOD 2--------
+# import os #optional
+# with open("friends.csv", 'r') as f:
+#     print(f.read())
+#     friends = f.read().splitlines() #returns a list of lines in a string
+#     print(friends)
+#     for friend in friends:
+#         friend = friends.split(', ') # discarding empty space in a string
+#         name = friends[0]
+#         year = int(friends[1].strip()) #returns a copy of string with whitespaces removed
+#         print(f'In 2030 {name} will be {2030 - year} old') 
+    
+    # ------METHOD 3 ----------
+with open('greetings.txt', 'r') as f:
+        for line in f.readlines():
+            print(line)
