@@ -584,8 +584,28 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 #         name = friends[0]
 #         year = int(friends[1].strip()) #returns a copy of string with whitespaces removed
 #         print(f'In 2030 {name} will be {2030 - year} old') 
-    
+  #!array retaining empty []  
     # ------METHOD 3 ----------
-with open('greetings.txt', 'r') as f:
-        for line in f.readlines():
-            print(line)
+# with open('greetings.txt', 'r') as f:
+#         for line in f.readlines():
+#             print(line)
+
+####### EXCEPTIONS ---TRY/EXCEPT & RAISE
+# for handling errors in a code
+try:
+    num = float(input('Enter a num between 1-30:'))
+    num1 = 30/num #code you want to run
+    if num > 30:
+        raise ValueError(num)
+except ZeroDivisionError as err:   #executed if error occurs
+    print(err, 'Can\'t divide number by zero!')
+except ValueError as err:
+    print(err,'Bad value! Enter number between 1-30')
+except:
+    print('Invalid input')
+else: # code we want to run
+    print("30 divided by",num, "is: ", 30/num)
+finally:  #always executed 
+    print('Thank you for playing')
+
+    
