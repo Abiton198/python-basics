@@ -614,23 +614,47 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 #Objects are the actual things you built
 #variables => attributes
 #functions => methods
-class Movie:
-    def __init__(self, name,title,year): # self === this in JS - works the same
-        self.name = name 
-        self.title = title
-        self.year = year
+# class Movie:
+#     def __init__(self, name,title,year): # self === this in JS - works the same
+#         self.name = name 
+#         self.title = title
+#         self.year = year
 
-    def nice_print(self):
-        print('name: ', self.name)
-        print('title: ', self.title)
-        print('year: ', self.year)
+#     def nice_print(self):
+#         print('name: ', self.name)
+#         print('title: ', self.title)
+#         print('year: ', self.year)
 
-film1 = Movie('Lenardo Di Caprio', 'Titanic', '1999')
-film2 = Movie('Sandra Sosora', 'Wakanda 3', '2019')
+# film1 = Movie('Lenardo Di Caprio', 'Titanic', '1999')
+# film2 = Movie('Sandra Sosora', 'Wakanda 3', '2019')
 
-films = [film1, film2]
-print(films[0].name, films[1].name) # print out selected items in array
-film1.nice_print() # print everything 
+# films = [film1, film2]
+# print(films[0].name, films[1].name) # print out selected items in array
+# film1.nice_print() # print everything 
+
+############ INHERITANCE ###########
+class Person(): #original class that passes attributes to other classes
+    def move(self): # attributes of each class defined
+        print('Moves 4 paces')
+
+    def rest(self):
+        print('Gains 4 healthy points')
+class Fighter(Person): #class that inherits the original - person
+    def fight(self):
+        print('Do 10 health points of damage')
+    def move(self):
+        print('Move 6 paces')
+class Doctor(Person): # doctor inherits person attributes
+    def heal(self):
+        print('Heals 10 points')
+class Wizard(Doctor,Fighter):
+    def cast_spell(self):
+        print("Turns invisble")
+    def heal(self):
+        print("Heals 15 health points")
+
+character1 = Wizard()
+character1.heal()
 
 
         
