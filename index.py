@@ -633,31 +633,71 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 # film1.nice_print() # print everything 
 
 ############ INHERITANCE ###########
-class Person(): #original class that passes attributes to other classes
-    def move(self): # attributes of each class defined
-        print('Moves 4 paces')
+# class Person(): #original class that passes attributes to other classes
+#     def move(self): # attributes of each class defined
+#         print('Moves 4 paces')
 
-    def rest(self):
-        print('Gains 4 healthy points')
-class Fighter(Person): #class that inherits the original - person
-    def fight(self):
-        print('Do 10 health points of damage')
-    def move(self):
-        print('Move 6 paces')
-class Doctor(Person): # doctor inherits person attributes
-    def heal(self):
-        print('Heals 10 points')
-class Wizard(Doctor,Fighter):
-    def cast_spell(self):
-        print("Turns invisble")
-    def heal(self):
-        print("Heals 15 health points")
+#     def rest(self):
+#         print('Gains 4 healthy points')
+# class Fighter(Person): #class that inherits the original - person
+#     def fight(self):
+#         print('Do 10 health points of damage')
+#     def move(self):
+#         print('Move 6 paces')
+# class Doctor(Person): # doctor inherits person attributes
+#     def heal(self):
+#         print('Heals 10 points')
+# class Wizard(Doctor,Fighter): # combined attributes from other classes to pass as inheritence
+#     def cast_spell(self):
+#         print("Turns invisble")
+#     def heal(self):
+#         print("Heals 15 health points")
 
-character1 = Wizard()
-character1.heal()
+# character1 = Wizard()
+# character1.heal()
 
-
+# input(help(Wizard()))# brings information on what attributes were inherited
         
+##################### MODULES ###########
+#method 1
+# import platform
+# # print(dir(platform))# various platform that can use module
+# print(platform.python_version()) # shows which python version using.
 
+# #method 2
+# from platform import python_version as pv, system
+# print(pv())
+# print(system())
 
-    
+########## ZIP / UNZIP ##############
+nums = '1234' 
+letters = ['a','b','c','d']
+names =['John','Eric','Michael','Graham','Joe']
+# create a variable to bring everything 
+combo = list(zip(nums,letters,names)) # zip - packing things together amtching index
+print(combo)
+nums,letters,names = zip(*combo) #returning to the original position --- unzip or unpackaging
+print(nums,letters,names)
+
+#creating a dictionary
+keys = 'this parrot is deceased'
+values = 'denna papegojan är avliden'
+keys = keys.split() #making string a list
+values = values.split()
+
+print(keys,values)
+#---Method 1---
+en_sv_dict = dict(zip(keys,values)) # zip mix 2 lists into 1 matching indexes
+print(en_sv_dict)
+
+#---Method 2----
+new_dict = {keys:values for keys,values in zip(keys,values)}
+print(new_dict)
+
+#---Returning to list 1 ----
+en,sv = list(en_sv_dict.keys()), list(en_sv_dict.values())
+print(en,sv) 
+
+#----Returning to list 2----
+en1,sv1 = zip(*en_sv_dict.items()) #unpacking / unzip to list 
+print(en1,sv1)
