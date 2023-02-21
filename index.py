@@ -406,7 +406,7 @@
 # for numbers in range(5,60,12): # in range - prints from 5, skips according to 3rd number 12 upto 60
 #     # ['Terry', 'John', 'Mark', 'Ann'] - list === use for names in [...]
 #     print(numbers)
-friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
+# friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 # for index in range(len(friends)): #len - length; index- contents of array
 #     print(friends[index])
 # print('For loop when done')
@@ -670,34 +670,65 @@ friends = ['Terry', 'John', 'Eric', 'Mark', 'Ann']
 # print(system())
 
 ########## ZIP / UNZIP ##############
-nums = '1234' 
-letters = ['a','b','c','d']
-names =['John','Eric','Michael','Graham','Joe']
-# create a variable to bring everything 
-combo = list(zip(nums,letters,names)) # zip - packing things together amtching index
-print(combo)
-nums,letters,names = zip(*combo) #returning to the original position --- unzip or unpackaging
-print(nums,letters,names)
+# nums = '1234' 
+# letters = ['a','b','c','d']
+# names =['John','Eric','Michael','Graham','Joe']
+# # create a variable to bring everything 
+# combo = list(zip(nums,letters,names)) # zip - packing things together amtching index
+# print(combo)
+# nums,letters,names = zip(*combo) #returning to the original position --- unzip or unpackaging
+# print(nums,letters,names)
 
-#creating a dictionary
-keys = 'this parrot is deceased'
-values = 'denna papegojan är avliden'
-keys = keys.split() #making string a list
-values = values.split()
+# #creating a dictionary
+# keys = 'this parrot is deceased'
+# values = 'denna papegojan är avliden'
+# keys = keys.split() #making string a list
+# values = values.split()
 
-print(keys,values)
-#---Method 1---
-en_sv_dict = dict(zip(keys,values)) # zip mix 2 lists into 1 matching indexes
-print(en_sv_dict)
+# print(keys,values)
+# #---Method 1---
+# en_sv_dict = dict(zip(keys,values)) # zip mix 2 lists into 1 matching indexes
+# print(en_sv_dict)
 
-#---Method 2----
-new_dict = {keys:values for keys,values in zip(keys,values)}
-print(new_dict)
+# #---Method 2----
+# new_dict = {keys:values for keys,values in zip(keys,values)}
+# print(new_dict)
 
-#---Returning to list 1 ----
-en,sv = list(en_sv_dict.keys()), list(en_sv_dict.values())
-print(en,sv) 
+# #---Returning to list 1 ----
+# en,sv = list(en_sv_dict.keys()), list(en_sv_dict.values())
+# print(en,sv) 
 
-#----Returning to list 2----
-en1,sv1 = zip(*en_sv_dict.items()) #unpacking / unzip to list 
-print(en1,sv1)
+# #----Returning to list 2----
+# en1,sv1 = zip(*en_sv_dict.items()) #unpacking / unzip to list 
+# print(en1,sv1)
+
+####### LAMDA FUNCTIONS ###########
+# functions that can be used once and never again unless named
+print('Lambda Function')
+def square(x):
+  return x*x
+  #name = function parameter(s):expression
+square1 = lambda x : x*x #example of lambda 
+double_mult = lambda x,y : 4*x+y #double values/parameters
+print(double_mult(2,2))
+print(square1(4))
+print(square(3))
+
+def name_and_alias(name,alias) :
+   return name.strip().title() + ': ' + alias.strip().title() #strip - levels everything before capitalized
+name_and_alias1 = lambda name,alias : name.strip().title() + ': ' + alias.strip().title() #lambda function
+print(name_and_alias('aBitOn PaDerA', 'micHeLle'))
+print(name_and_alias1('aBitOn PaDerA', 'micHeLle'))
+
+######sorting names using lambda func######
+monty_python = ['John Marwood Cleese','Eric Idle','Michael Edward Palin','Terrence Vance Gilliam','Terry Graham Perry Jones', 'Graham Arthur Chapman']
+
+# monty_python.sort(key = lambda name:name).split(' ')
+# print(monty_python) #lambda
+
+#function sort names using starting name
+def sort_names(name):
+  return name.split(' ')
+monty_python.sort(key =sort_names)
+print(monty_python)
+
