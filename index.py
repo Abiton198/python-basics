@@ -704,31 +704,78 @@
 
 ####### LAMDA FUNCTIONS ###########
 # functions that can be used once and never again unless named
-print('Lambda Function')
-def square(x):
-  return x*x
-  #name = function parameter(s):expression
-square1 = lambda x : x*x #example of lambda 
-double_mult = lambda x,y : 4*x+y #double values/parameters
-print(double_mult(2,2))
-print(square1(4))
-print(square(3))
+# print('Lambda Function')
+# def square(x):
+#   return x*x
+#   #name = function parameter(s):expression
+# square1 = lambda x : x*x #example of lambda 
+# double_mult = lambda x,y : 4*x+y #double values/parameters
+# print(double_mult(2,2))
+# print(square1(4))
+# print(square(3))
 
-def name_and_alias(name,alias) :
-   return name.strip().title() + ': ' + alias.strip().title() #strip - levels everything before capitalized
-name_and_alias1 = lambda name,alias : name.strip().title() + ': ' + alias.strip().title() #lambda function
-print(name_and_alias('aBitOn PaDerA', 'micHeLle'))
-print(name_and_alias1('aBitOn PaDerA', 'micHeLle'))
+# def name_and_alias(name,alias) :
+#    return name.strip().title() + ': ' + alias.strip().title() #strip - levels everything before capitalized
+# name_and_alias1 = lambda name,alias : name.strip().title() + ': ' + alias.strip().title() #lambda function
+# print(name_and_alias('aBitOn PaDerA', 'micHeLle'))
+# print(name_and_alias1('aBitOn PaDerA', 'micHeLle'))
 
-######sorting names using lambda func######
-monty_python = ['John Marwood Cleese','Eric Idle','Michael Edward Palin','Terrence Vance Gilliam','Terry Graham Perry Jones', 'Graham Arthur Chapman']
+# ######sorting names using lambda func######
+# monty_python = ['John Marwood Cleese','Eric Idle','Michael Edward Palin','Terrence Vance Gilliam','Terry Graham Perry Jones', 'Graham Arthur Chapman']
 
-# monty_python.sort(key = lambda name:name).split(' ')
-# print(monty_python) #lambda
+# # monty_python.sort(key = lambda name:name).split(' ')[-1] #sorted by last name
+# # print(monty_python) #lambda
 
-#function sort names using starting name
-def sort_names(name):
-  return name.split(' ')
-monty_python.sort(key =sort_names)
-print(monty_python)
+# #function sort names using starting name
+# def sort_names(name):
+#   return name.split(' ')
+# monty_python.sort(key =sort_names)
+# print(monty_python)
+
+########LAMBDA FUNCTIONS 2 ##############
+#function to calculate differnt prices for different clients in a shop
+# def price_cal(start, hourly_rate):
+#   return lambda hours: start + hourly_rate * hours
+# walkin_cost = price_cal(10,20) 
+# premium_cost = price_cal(1,10)
+
+# print(walkin_cost(2)) #hours - 2
+# print(premium_cost(2))#same hours but diff output 
+# print(price_cal(4,20)(2))# calculated according to the fomula (start + hourly_rate * hours)
+
+# print('Lambdas Exercise')
+
+# #Complete the function so it returns a function
+# def create_quad_func(a,b,c):
+#     '''return function f(x) = ax^2 + bx + c'''
+#     return lambda x: a*x**2 + b*x + c
+# f = create_quad_func(2,4,6)
+# g = create_quad_func(1,2,3)
+# print(f(2))
+# print(g(2))
+
+# print('Lambdas Exercise')
+
+# #Exercise
+# signups = ['MPF104', 'MPF20', 'MPF2', 'MPF17', 'MPF3', 'MPF45']
+# print(sorted(signups)) # Lexicographic sort
+# #write sorting by integer
+# print(sorted(signups,key=lambda id: int (id[3:]))) #sorting the ids using the order of numbers only
+
+print('Lambdas Exercise')
+
+class Player:
+   def __init__(self, name, score):
+       self.name = name
+       self.score =  score
+
+Eric = Player('Eric', 116700)
+John = Player('John', 24327)
+Terry = Player('Terry', 150000)
+player_list = [Eric, John, Terry]
+
+#Exercise: Sort this by score using lambda!
+#write code here
+player_list.sort(key = lambda playyer :playyer.score ) #sorts from descending order
+print([player.name for player in player_list])
 
