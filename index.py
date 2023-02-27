@@ -816,11 +816,11 @@
 # print(f'My name is {name}')
 
 ########DICTIONARIES COMPREHENSION #####################
-movies = ["And Now for Something Completely Different","Monty Python and the Holy Grail",
-"Monty Python's Life of Brian","Monty Python Live at the Hollywood Bowl","Monty Python's The Meaning of Life","Monty Python Live (Mostly)"]
-year =[1971,1975,1979,1982,1983,2014]
-names = ['John','Eric','Michael','Graham','Terry','TerryG']
-# give me a dict('movies': year) for each movies, year in zip(movies, year)
+# movies = ["And Now for Something Completely Different","Monty Python and the Holy Grail",
+# "Monty Python's Life of Brian","Monty Python Live at the Hollywood Bowl","Monty Python's The Meaning of Life","Monty Python Live (Mostly)"]
+# year =[1971,1975,1979,1982,1983,2014]
+# names = ['John','Eric','Michael','Graham','Terry','TerryG']
+# # give me a dict('movies': year) for each movies, year in zip(movies, year)
 # print(list(zip(names,movies,year)))
 # #using the function method
 # new_dict = dict ()
@@ -830,6 +830,37 @@ names = ['John','Eric','Michael','Graham','Terry','TerryG']
 # #dictionary
 # new_dict = {movie:yr for movie,year in zip(movies,year) if year < 1981}
 # print(new_dict)
-#comprehension disctionary
-new_dict1 = [(name,movie,year) for name, movie,year in zip(names,movies,year) if year < 1983]
-print(new_dict1)
+# #comprehension dictionary
+# new_dict1 = [(name,movie,year) for name, movie,year in zip(names,movies,year) if year < 1983]
+# print(new_dict1)
+
+############## RANDOMNESS ##############
+import random, string #returns a random number
+for i in range(5): 
+    # print(random.random() * 7) #random-num btw 0-1
+    # print(random.uniform(4,6)) #generates num btwn the range given
+    # print(random.randint(2,5)) #generates random integer btwn range gven
+    # print(random.randrange(1,50,5))#generates range of 1st 2 arguments and steps using 3rd argument
+    friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
+# print(random.choice(friends_list))#bring a random name from list
+# print(random.sample(friends_list,3)) # bring random list acc to num
+# random.shuffle(friends_list) #shuffles the order of the list
+# print(friends_list)
+
+###when you want to make a mixed string of letters and numbers( import string)
+smallcaps = 'abcdefghijklmnopqrstuvwxyz'
+largecaps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+digits = '0123456789'
+
+num_letters = string.ascii_letters + string.digits
+password = ''
+for i in range(9):
+    # password += random.choice(num_letters) #can be used for password generation to return a string
+    password = ''.join(random.sample(num_letters,7))
+
+print(password)
+
+
+
+
+
