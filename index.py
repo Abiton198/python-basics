@@ -835,32 +835,61 @@
 # print(new_dict1)
 
 ############## RANDOMNESS ##############
-import random, string #returns a random number
-for i in range(5): 
-    # print(random.random() * 7) #random-num btw 0-1
-    # print(random.uniform(4,6)) #generates num btwn the range given
-    # print(random.randint(2,5)) #generates random integer btwn range gven
-    # print(random.randrange(1,50,5))#generates range of 1st 2 arguments and steps using 3rd argument
-    friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
-# print(random.choice(friends_list))#bring a random name from list
-# print(random.sample(friends_list,3)) # bring random list acc to num
-# random.shuffle(friends_list) #shuffles the order of the list
-# print(friends_list)
+#!PROJECT .....Password generator
+# import random, string #returns a random number
+# for i in range(5): 
+#     # print(random.random() * 7) #random-num btw 0-1
+#     # print(random.uniform(4,6)) #generates num btwn the range given
+#     # print(random.randint(2,5)) #generates random integer btwn range gven
+#     # print(random.randrange(1,50,5))#generates range of 1st 2 arguments and steps using 3rd argument
+#     friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
+# # print(random.choice(friends_list))#bring a random name from list
+# # print(random.sample(friends_list,3)) # bring random list acc to num
+# # random.shuffle(friends_list) #shuffles the order of the list
+# # print(friends_list)
 
-###when you want to make a mixed string of letters and numbers( import string)
-smallcaps = 'abcdefghijklmnopqrstuvwxyz'
-largecaps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-digits = '0123456789'
+# ###when you want to make a mixed string of letters and numbers( import string)
+# smallcaps = 'abcdefghijklmnopqrstuvwxyz'
+# largecaps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# digits = '0123456789'
 
-num_letters = string.ascii_letters + string.digits
-password = ''
-for i in range(9):
-    # password += random.choice(num_letters) #can be used for password generation to return a string
-    password = ''.join(random.sample(num_letters,7))
+# num_letters = string.ascii_letters + string.digits
+# password = ''
+# for i in range(9):
+#     # password += random.choice(num_letters) #can be used for password generation to return a string
+#     password = ''.join(random.sample(num_letters,7)) #doesnt duplicate values in the string
 
-print(password)
+# print(password)
 
+########### TIMEIT & PERFOMANCE #####################
+#checking which code runs faster than the other === all code brings same result
+import timeit
 
+print('Performance and Timeit module')
+# Experiment with sieve of Eratosthenes
+def test1():
+    [x for x in range(1, 151) if not any([x % y == 0 for y in range(2, x)]) and not x == 1]
+    return(1)
+def test2():
+    [x for x in range(2, 151) if not any([x % y == 0 for y in range(2, x)])] 
+    return(1)
+def test3():
+    # Initialize a list
+    primes = []
+    for possiblePrime in range(2, 151):
+    # Assume number is prime until shown it is not.
+        isPrime = True
+        for num in range(2, int(possiblePrime ** 0.5) + 1):
+            if possiblePrime % num == 0:
+                isPrime = False
+                break
+        if isPrime:
+            primes.append(possiblePrime)
+    #print(primes)
+    return(1)
 
+print(timeit.timeit('test1()', globals=globals(), number=10))
+print(timeit.timeit('test2()', globals=globals(), number=10))
+print(timeit.timeit('test3()', globals=globals(), number=10))
 
 
