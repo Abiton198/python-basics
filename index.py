@@ -762,20 +762,74 @@
 # #write sorting by integer
 # print(sorted(signups,key=lambda id: int (id[3:]))) #sorting the ids using the order of numbers only
 
-print('Lambdas Exercise')
+# print('Lambdas Exercise')
 
-class Player:
-   def __init__(self, name, score):
-       self.name = name
-       self.score =  score
+# class Player:
+#    def __init__(self, name, score):
+#        self.name = name
+#        self.score =  score
 
-Eric = Player('Eric', 116700)
-John = Player('John', 24327)
-Terry = Player('Terry', 150000)
-player_list = [Eric, John, Terry]
+# Eric = Player('Eric', 116700)
+# John = Player('John', 24327)
+# Terry = Player('Terry', 150000)
+# player_list = [Eric, John, Terry]
 
-#Exercise: Sort this by score using lambda!
-#write code here
-player_list.sort(key = lambda playyer :playyer.score ) #sorts from descending order
-print([player.name for player in player_list])
+# #Exercise: Sort this by score using lambda!
+# #write code here
+# player_list.sort(key = lambda playyer :playyer.score ) #sorts from descending order
+# print([player.name for player in player_list])
 
+########COMPREHENSIONS ##########
+# numbers = [1,2,3,4,5,6,7,8,9]
+# # give me a list with num squared for each num in numbers
+# new_list = []
+# for num in numbers:
+#     new_list.append(num*num)
+# print(new_list)
+
+# new_list = [num * num for num in numbers] # comprehension - squared num
+# give me a list with num for each num in numbers if num is even
+# new_list1 = [num for num in numbers if num % 2 == 0] # % -modula (divided by 2 with remainder 0) even numbers #! num % 2 != 0 (odd numbers)
+
+# #lambda function
+# new_list2 = filter(lambda num : num % 2 == 0, numbers)
+# print(list (new_list2))
+# print(new_list)
+# print(new_list1)
+
+# I want a (letter, num) pair for each letter in 'spam' and each number in '0123'
+# new_list = []
+# for letter in 'spam':
+#    for num in range(4):
+#        new_list.append((letter,num))
+# print(new_list)
+
+# new_list = [(letter,num) for letter in'spam' for num in range(4)] # comprehension
+# print(new_list)
+
+# print('''I"m in love 
+# this is amaizing''')
+
+#putting an input box below a question
+# print('What is your name?')
+# name = input('')
+# print(f'My name is {name}')
+
+########DICTIONARIES COMPREHENSION #####################
+movies = ["And Now for Something Completely Different","Monty Python and the Holy Grail",
+"Monty Python's Life of Brian","Monty Python Live at the Hollywood Bowl","Monty Python's The Meaning of Life","Monty Python Live (Mostly)"]
+year =[1971,1975,1979,1982,1983,2014]
+names = ['John','Eric','Michael','Graham','Terry','TerryG']
+# give me a dict('movies': year) for each movies, year in zip(movies, year)
+# print(list(zip(names,movies,year)))
+# #using the function method
+# new_dict = dict ()
+# for movie,yr in zip(movies,year):
+#     new_dict[movie] = yr
+# print(new_dict)
+# #dictionary
+# new_dict = {movie:yr for movie,year in zip(movies,year) if year < 1981}
+# print(new_dict)
+#comprehension disctionary
+new_dict1 = [(name,movie,year) for name, movie,year in zip(names,movies,year) if year < 1983]
+print(new_dict1)
