@@ -863,33 +863,93 @@
 
 ########### TIMEIT & PERFOMANCE #####################
 #checking which code runs faster than the other === all code brings same result
-import timeit
+# import timeit
 
-print('Performance and Timeit module')
-# Experiment with sieve of Eratosthenes
-def test1():
-    [x for x in range(1, 151) if not any([x % y == 0 for y in range(2, x)]) and not x == 1]
-    return(1)
-def test2():
-    [x for x in range(2, 151) if not any([x % y == 0 for y in range(2, x)])] 
-    return(1)
-def test3():
-    # Initialize a list
-    primes = []
-    for possiblePrime in range(2, 151):
-    # Assume number is prime until shown it is not.
-        isPrime = True
-        for num in range(2, int(possiblePrime ** 0.5) + 1):
-            if possiblePrime % num == 0:
-                isPrime = False
-                break
-        if isPrime:
-            primes.append(possiblePrime)
-    #print(primes)
-    return(1)
+# print('Performance and Timeit module')
+# # Experiment with sieve of Eratosthenes
+# def test1():
+#     [x for x in range(1, 151) if not any([x % y == 0 for y in range(2, x)]) and not x == 1]
+#     return(1)
+# def test2():
+#     [x for x in range(2, 151) if not any([x % y == 0 for y in range(2, x)])] 
+#     return(1)
+# def test3():
+#     # Initialize a list
+#     primes = []
+#     for possiblePrime in range(2, 151):
+#     # Assume number is prime until shown it is not.
+#         isPrime = True
+#         for num in range(2, int(possiblePrime ** 0.5) + 1):
+#             if possiblePrime % num == 0:
+#                 isPrime = False
+#                 break
+#         if isPrime:
+#             primes.append(possiblePrime)
+#     #print(primes)
+#     return(1)
 
-print(timeit.timeit('test1()', globals=globals(), number=10))
-print(timeit.timeit('test2()', globals=globals(), number=10))
-print(timeit.timeit('test3()', globals=globals(), number=10))
+# print(timeit.timeit('test1()', globals=globals(), number=10))
+# print(timeit.timeit('test2()', globals=globals(), number=10))
+# print(timeit.timeit('test3()', globals=globals(), number=10))
 
+##############!PROJECT - Crypto ###########
+# print('Project -  Crypto')
+# def enigma_light():
+# # create keys string
+#     keys = 'abcdefghijklmnopqrstuvwxyz !'
+#     # autogenerate the values string by offsetting original string
+#     values = keys[-1] + keys[0:-1]
+#     print(keys)
+#     print(values)
+#     # create two dictionaries
+#     dict_e = dict(zip(keys,values))
+#     dict_d = dict(zip(values,keys))
+#     # # OR create 1 and then flip  === dictionary
+#     # dict_e = dict(zip(keys,values))
+#     # dict_d = {value:key for key, value in dict_e.items()}
+# #user input 'the message' and mode
+#     msg = input('Enter your secret message quietly: ')
+#     mode = input('Crypto mode: encode (e) OR encrypt as default: ')
+# # run encode or decode
+#     if mode.lower() == 'e':
+#         new_msg = ''.join([dict_e[letter] for letter in msg.lower()])
+#     else:
+#         new_msg = ''.join([dict_d[letter] for letter in msg.lower()]) #
+    
+#     return new_msg.capitalize()
+
+# # return result
+# # clean and beautify the code 
+# print(enigma_light())
+
+#!######### PROJECT -MATHS TUTOR #############
+from  random import randrange as r  #import random module
+from time import time as t  #import time module
+
+#input for number of questions needed
+no_qns = int(input('How many questions you want?'))
+max_num = int(input('The highest number to use in practice:'))
+
+#score starts at default 0 - will increase when a correct answer
+score = 0
+
+#Append answers in list as answered by user
+answers_list = []
+start = t() #start timer from input of questions to end of answering
+#conditional within range
+for q in range(no_qns):
+    math_num, math_num2 = r(1,max_num), r(2,max_num) #return any 2 random numbers from the selected range
+    quiz = math_num * math_num2
+    u_answer =  int(input(f'Answer: {math_num} * {math_num2} = '))
+    answers_list.append(f'{math_num} x {math_num2} = {quiz} , you:{u_answer}')
+#increases score if correct answer given
+    if u_answer == quiz:
+        score += 1
+end = t()
+#print - statement after answer & percentage of score 'thank you...'
+print(f'Thank you for playing! \nYou got {score} out of {no_qns} {round(score/no_qns*100)}% correct in {round(end-start,1)} seconds ({round((end-start)/no_qns,1)}seconds/question))')
+#test perfomance - using test module (import test module)
+#round - round the seconds into whole number integers
+for a in answers_list: #print ur answers list
+    print(a)
 
