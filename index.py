@@ -923,33 +923,79 @@
 # print(enigma_light())
 
 #!######### PROJECT -MATHS TUTOR #############
-from  random import randrange as r  #import random module
-from time import time as t  #import time module
+# from  random import randrange as r  #import random module
+# from time import time as t  #import time module
 
-#input for number of questions needed
-no_qns = int(input('How many questions you want?'))
-max_num = int(input('The highest number to use in practice:'))
+# #input for number of questions needed
+# no_qns = int(input('How many questions you want?'))
+# max_num = int(input('The highest number to use in practice:'))
 
-#score starts at default 0 - will increase when a correct answer
-score = 0
+# #score starts at default 0 - will increase when a correct answer
+# score = 0
 
-#Append answers in list as answered by user
-answers_list = []
-start = t() #start timer from input of questions to end of answering
-#conditional within range
-for q in range(no_qns):
-    math_num, math_num2 = r(1,max_num), r(2,max_num) #return any 2 random numbers from the selected range
-    quiz = math_num * math_num2
-    u_answer =  int(input(f'Answer: {math_num} * {math_num2} = '))
-    answers_list.append(f'{math_num} x {math_num2} = {quiz} , you:{u_answer}')
-#increases score if correct answer given
-    if u_answer == quiz:
-        score += 1
-end = t()
-#print - statement after answer & percentage of score 'thank you...'
-print(f'Thank you for playing! \nYou got {score} out of {no_qns} {round(score/no_qns*100)}% correct in {round(end-start,1)} seconds ({round((end-start)/no_qns,1)}seconds/question))')
-#test perfomance - using test module (import test module)
-#round - round the seconds into whole number integers
-for a in answers_list: #print ur answers list
-    print(a)
+# #Append answers in list as answered by user
+# answers_list = []
+# start = t() #start timer from input of questions to end of answering
+# #conditional within range
+# for q in range(no_qns):
+#     math_num, math_num2 = r(1,max_num), r(2,max_num) #return any 2 random numbers from the selected range
+#     quiz = math_num * math_num2
+#     u_answer =  int(input(f'Answer: {math_num} * {math_num2} = '))
+#     answers_list.append(f'{math_num} x {math_num2} = {quiz} , you:{u_answer}')
+# #increases score if correct answer given
+#     if u_answer == quiz:
+#         score += 1
+# end = t()
+# #print - statement after answer & percentage of score 'thank you...'
+# print(f'Thank you for playing! \nYou got {score} out of {no_qns} {round(score/no_qns*100)}% correct in {round(end-start,1)} seconds ({round((end-start)/no_qns,1)}seconds/question))')
+# #test perfomance - using test module (import test module)
+# #round - round the seconds into whole number integers
+# for a in answers_list: #print ur answers list
+#     print(a)
+
+###!###### PROJECT - MARBLE TRADING GAME  #################
+#draw a marble fro a bag - random
+#bag of marbles - 6 green 4 red
+#if you draw green == $10 else you lose $10
+#marbles replaced
+#input - how much you want to bet
+#purse / bank == $1000
+#number of rounds = 5
+#if purse < 500 - you lose --game over
+
+import random
+
+green_marble = ['green', 'green', 'black', 'green', 'green', 'white']
+red_marble = ['red', 'red', 'red', 'red']
+marbles = green_marble + red_marble
+no_rounds = 5
+start_up_amount = 1000
+print(marbles)
+
+# print(my_choice)
+for p in range(1,no_rounds+1):
+    bet_amount = int(input('How much do you want to bet?'))
+    purse_amount = int(start_up_amount) - bet_amount
+    my_choice = random.choice(marbles)
+    if my_choice == 'green':
+        purse_amount = purse_amount + bet_amount
+        print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
+    elif my_choice == 'black':
+        purse_amount = 10 * bet_amount
+    elif my_choice == 'white':
+        purse_amount = -5 * bet_amount
+    else:
+        purse_amount -= bet_amount
+        print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
+
+if purse_amount < 500:
+    print(f'Your purse is now {purse_amount} pounds. And you lose!')
+
+# if my_choice:
+#     marbles -= 1
+
+ 
+
+
+
 
