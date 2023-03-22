@@ -963,39 +963,87 @@
 #number of rounds = 5
 #if purse < 500 - you lose --game over
 
-import random
+# import random
 
-green_marble = ['green', 'green', 'black', 'green', 'green', 'white']
-red_marble = ['red', 'red', 'red', 'red']
-marbles = green_marble + red_marble
-no_rounds = 5
-start_up_amount = 1000
-print(marbles)
+# green_marble = ['green', 'green', 'black', 'green', 'green', 'white']
+# red_marble = ['red', 'red', 'red', 'red']
+# marbles = green_marble + red_marble
+# no_rounds = 5
+# start_up_amount = 1000
+# print(marbles)
 
-# print(my_choice)
-for p in range(1,no_rounds+1):
-    bet_amount = int(input('How much do you want to bet?'))
-    purse_amount = int(start_up_amount) - bet_amount
-    my_choice = random.choice(marbles)
-    if my_choice == 'green':
-        purse_amount = purse_amount + bet_amount
-        print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
-    elif my_choice == 'black':
-        purse_amount = 10 * bet_amount
-    elif my_choice == 'white':
-        purse_amount = -5 * bet_amount
-    else:
-        purse_amount -= bet_amount
-        print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
+# # print(my_choice)
+# for p in range(1,no_rounds+1):
+#     bet_amount = int(input('How much do you want to bet?'))
+#     purse_amount = int(start_up_amount) - bet_amount
+#     my_choice = random.choice(marbles)
+#     if my_choice == 'green':
+#         purse_amount = purse_amount + bet_amount
+#         print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
+#     elif my_choice == 'black':
+#         purse_amount = 10 * bet_amount
+#     elif my_choice == 'white':
+#         purse_amount = -5 * bet_amount
+#     else:
+#         purse_amount -= bet_amount
+#         print(f'Your choice is {my_choice} and you purse is now {purse_amount} pounds')
 
-if purse_amount < 500:
-    print(f'Your purse is now {purse_amount} pounds. And you lose!')
+# if purse_amount < 500:
+#     print(f'Your purse is now {purse_amount} pounds. And you lose!')
 
 # if my_choice:
 #     marbles -= 1
 
  
+# ###############PALINDROMES ##############
+# import time
 
+# def is_palindrome(val):
+#     val = str(val)
+#     if val == val[::-1]:
+#         return(True)
+#     else:
+#         return(False)
+# #def is_palindrome(val):
+#  #   return str(val) == str(val)[::-1]
+ 
+# def palindrome_back():
+#     start_time = time.time()
+#     palindromes_list=[]
+#     debug_list=[]
+#     low_val =100
+#     high_val = 999
+#     iterations = 0
+#     low_num2_val =100
+    
+#     for num1 in range(high_val,low_val,-1):
+#             if num1 < low_val:
+#                 break
+#             for num2 in range(high_val,low_num2_val,-1):
+#                 iterations += 1
+#                 #print(num1,num2)
+#                 if is_palindrome(num1*num2):
+#                     palindromes_list.append(num1*num2)
+#                     low_val = max((num1*num2)/high_val,low_val)
+                    
+#                     debug_list.append([num1,num2,(num1*num2)/high_val,low_val])
+#                 if num1 == num2:
+#                     break
+#     print('print of palindromes:',palindromes_list, num1, num2)
+#     print('debug_list:', debug_list)
+#     print('Iterations:' , iterations)
+#     print('Largest palindrome:', max(palindromes_list))
+#     print('Runtime:', time.time()-start_time)
+#     print('---------End Run--------') #110 seconds, 55 secs
 
+    
 
+# # palindrome()
+# palindrome_back()
+
+#################! DATE & TIME ############
+#can display day or month or year only - todayDate.month
+import datetime
+todayDate = datetime.date.today()
+print(f"Today's date is {todayDate}")
 
