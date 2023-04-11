@@ -1043,7 +1043,46 @@
 
 #################! DATE & TIME ############
 #can display day or month or year only - todayDate.month
-import datetime
-todayDate = datetime.date.today()
-print(f"Today's date is {todayDate}")
+# import datetime
+# todayDate = datetime.date.today()
+# print(f"Today's date is {todayDate.day}")
 
+# print('I have %.3f dogs' % 7)
+
+################ IF STATMENT ################
+#####! Ex 1
+# deposit = int(input(f'How Much deposit?'))
+# freeToster = deposit > 100
+# # freeToster = False
+
+# if deposit > 100:
+#     print(f'Thank you for deposit R{deposit}, you collect your toaster!')
+# elif deposit <= 50:
+#     print(f'Thank you for deposit of R{deposit}, you get a free mug!')
+# else:
+#     print(f'Have a nice day! Thank you for depositing R{deposit}')
+# if freeToster:
+#     print('Enjoy your toaster!')
+
+####!Ex 2
+# total_purchase = int(input('What is your total purchase? $'))
+# shipping_fee = 10
+
+# if total_purchase > 50:
+#     print(f'Your total is ${total_purchase}, and your shipping if free!')
+# else:
+#     additional_cost = total_purchase + shipping_fee
+#     print(f'Your total bill is ${additional_cost} inc. shipping fee ${shipping_fee}')
+
+####! Ex 3
+
+country =input('Where do you come from?').upper()
+
+if country == 'CANADA':
+    print('Good Morning')
+elif country == 'SAUDI':
+    print('Sabaah Khair')
+elif country == 'FRANCE':
+    print('Bonjour')
+else:
+    print('Welcome dear brother')
