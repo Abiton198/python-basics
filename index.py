@@ -1076,13 +1076,82 @@
 
 ####! Ex 3
 
-country =input('Where do you come from?').upper()
+# country =input('Where do you come from?').upper()
 
-if country == 'CANADA':
-    print('Good Morning')
-elif country == 'SAUDI':
-    print('Sabaah Khair')
-elif country == 'FRANCE':
-    print('Bonjour')
-else:
-    print('Welcome dear brother')
+# if country == 'CANADA':
+#     print('Good Morning')
+# elif country == 'SAUDI':
+#     print('Sabaah Khair')
+# elif country == 'FRANCE':
+#     print('Bonjour')
+# else:
+#     print('Welcome dear brother')
+
+
+####! Ex 4
+# and - applies all conditions need to be true
+# or - 1 condition has to be true
+# wonLottery = False
+# hugeAmount = False
+
+# if wonLottery or hugeAmount:
+#     print('Now you can retire safely!')
+# else: 
+#     print('You can\'t retire now!')
+
+####! Ex 5
+# using (and or) in one statement
+# when in doubt surrond things in parenthis
+# break done logic in small logics
+
+# country = input('Which country are you from?').upper()
+# team = input('What is your favourite soccer team in EPL? ').upper()
+# animal = input('What is your favourite animal or pet ?').upper()
+
+# if country == 'CANADA' and (team == 'MANU' or animal == 'CAT'):
+#     # input('Do you like Hockey too?')
+#     print(f'Woow thats a great team, {team}, your pet, {animal} and\
+#           welcome, we hope {country} is beautiful')
+# else:
+#     print(f'Welcome, Hope {country} is fine!')
+
+######! Ex 6 - nested IF 
+# A nested if statement is an if statement within an if statement.
+# The indent of the code indicates which line is part of the if statements.
+
+# monday = True
+# haveCoffee = True
+
+# if monday:
+#     if haveCoffee:
+#         print('Need a coffee')
+#     else:
+#         print('Its game on!')
+#     print('I hate Mondays')
+# else:
+#     print('Get to work!')
+
+#####! FOR & WHILE LOOP #############
+# repeating events until something happens - will keep ask for input until condition is met as true
+# answer = '0'
+
+# while answer != '4':
+#     answer = input('What is 2 + 2? ')
+
+# print('Great! 2 + 2 = 4')
+
+## drawing with code using turtle
+import turtle
+
+# counter = 0
+
+# while counter < 4:
+#     turtle.forward(100)
+#     turtle.right(90)
+#     counter = counter+1
+
+#### or 
+
+for steps in range(4):
+    turtle.forward(100)
+    turtle.right(90)
