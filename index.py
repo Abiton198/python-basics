@@ -1140,18 +1140,34 @@
 
 # print('Great! 2 + 2 = 4')
 
-## drawing with code using turtle
-import turtle
+## drawing with code using turtle = python graphics
+# import turtle
 
+# # always make sure counter starts at 0
 # counter = 0
-
 # while counter < 4:
 #     turtle.forward(100)
 #     turtle.right(90)
-#     counter = counter+1
+#     counter += 1 #counter = counter+1
 
 #### or 
 
-for steps in range(4):
-    turtle.forward(100)
-    turtle.right(90)
+# for steps in range(4):
+#     turtle.forward(100)
+#     turtle.right(90)
+
+#######! LISTS ###########
+guests = ['Abiton', 'Michelle', 'Travis', 'Tyris', 'Cherise']
+print(f'The first guest is {guests[0]}') 
+
+del guests[3] #delete item from list
+
+guests.append('Tinevimbo') # add item into list
+
+guests[2] = 'Anesu' # update list
+
+guests.remove('Cherise') #remove item from list
+print(guests[-1])
+print(guests)
+
+
