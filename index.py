@@ -1157,17 +1157,47 @@
 #     turtle.right(90)
 
 #######! LISTS ###########
-guests = ['Abiton', 'Michelle', 'Travis', 'Tyris', 'Cherise']
-print(f'The first guest is {guests[0]}') 
+guests = ['Abiton', 'Michelle', 'Travis', 'Tyris', 'Cherise','Dorcas','Neria']
+# print(f'The first guest is {guests[0]}') 
 
 del guests[3] #delete item from list
 
-guests.append('Tinevimbo') # add item into list
+addItemOnList = guests.append('Tinevimbo') # add item into list
 
-guests[2] = 'Anesu' # update list
+updateList = guests[2] = 'Anesu' # update list
 
-guests.remove('Cherise') #remove item from list
-print(guests[-1])
-print(guests)
+removeFromList = guests.remove('Cherise') #remove item from list
+
+myIndex = guests.index('Tinevimbo') #check index of item
+
+sortList = guests.sort() #sort list in alphabet order
+###! Ex 2 steps print in range
+# nmbrValues = len(guests)
+# for steps in range(nmbrValues):
+#     print(guests[steps])
+
+# OR
+
+# currentGuest can be called anything guest or current or currentGuest
+# for currentGuest in guests:
+#     print(currentGuest)
+
+###! Ex 3
+guests = []
+name = ' '
+
+while name != 'DONE' :
+    name = input('Enter your guests please!: ')
+    if name != 'DONE':
+        guests.append(name) # update list by adding an item
+    else:
+         guests.__delitem__ # remove an item or delete
+
+    guests.sort() # sort by Alphabet
+for guest in guests: # print list in guest
+        print(guest)
+
+
+
 
 
