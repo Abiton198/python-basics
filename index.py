@@ -1183,21 +1183,39 @@ sortList = guests.sort() #sort list in alphabet order
 #     print(currentGuest)
 
 ###! Ex 3
-guests = []
-name = ' '
+# guests = []
+# name = ' '
 
-while name != 'DONE' :
-    name = input('Enter your guests please!: ')
-    if name != 'DONE':
-        guests.append(name) # update list by adding an item
-    else:
-         guests.__delitem__ # remove an item or delete
+# while name != 'DONE' :
+#     name = input('Enter your guests please!: ')
+#     if name != 'DONE':
+#         guests.append(name) # update list by adding an item
+#     else:
+#          guests.__delitem__ # remove an item or delete
 
-    guests.sort() # sort by Alphabet
-for guest in guests: # print list in guest
-        print(guest)
+#     guests.sort() # sort by Alphabet
+# for guest in guests: # print list in guest
+#         print(guest)
 
 
+########! FILES #######
+
+# myFile = open(fileName, access_mode)
+# access-mode = r -read, w - write, a-append, b - open a binary file
+
+fileName = 'greetings.csv'
+WRITE = 'w' # overwrite the file
+APPEND = 'a'
+READ = 'r'
+READWRITE = 'w+'
+
+# csv = comma seperated variable
+
+myFile = open(fileName, mode = WRITE) #open() file and do what you want
+# myFile.write('Am checking if this is working. \n Can you please check for me.')
+myFile.write('Cherise, 4, \n Tyris, 9')
+myFile.close() #always close() the file 
+print('File successfully written')
 
 
 
