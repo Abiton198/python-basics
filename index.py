@@ -1204,18 +1204,42 @@ sortList = guests.sort() #sort list in alphabet order
 # access-mode = r -read, w - write, a-append, b - open a binary file
 
 fileName = 'greetings.csv'
+# uppercase letters(variable) - constant (unchanging value signal) WRITE
 WRITE = 'w' # overwrite the file
 APPEND = 'a'
 READ = 'r'
 READWRITE = 'w+'
 
-# csv = comma seperated variable
-
+# # csv = comma seperated variable / excel file
+# ###! Ex 1 ####
 myFile = open(fileName, mode = WRITE) #open() file and do what you want
 # myFile.write('Am checking if this is working. \n Can you please check for me.')
-myFile.write('Cherise, 4, \n Tyris, 9')
+myFile.write('Cherise 4, \n Tyris 9,\n Cherrry 4, \n Mechelle 33, \n Abiton 36, \n Travis 13, \n Noreen 65, \n Dorcas 62, \n Munashe 35, \n Tapiwa 28,\n Eric 38')
 myFile.close() #always close() the file 
 print('File successfully written')
 
+###! Ex 2 ####
+####Read from file
 
+# #open file
+# fileName = open('greetings.txt')
+# # allFilesRead = fileName.read() #reads all content in file
+# firstSentence = fileName.readline() #reads first line only
+# print(firstSentence)
+
+###! using a library csv ##!
+import csv
+#load the data file into a list
+
+fileName = 'greetings.csv'
+READWRITE = 'w+'
+
+with open(fileName, mode= READWRITE) as myCSVFile: #no need to use close() if using (with - as)
+    dataFromFile = csv.reader(myCSVFile)
+
+    for data in dataFromFile:
+        # for currentData in data: #individual rows in data file
+          # for current in currentData:
+        print(' ;'.join(data)) #';'.join() - method to join list items and specify a separator
+    
 
