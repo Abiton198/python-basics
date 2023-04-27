@@ -1203,20 +1203,20 @@ sortList = guests.sort() #sort list in alphabet order
 # myFile = open(fileName, access_mode)
 # access-mode = r -read, w - write, a-append, b - open a binary file
 
-fileName = 'greetings.csv'
-# uppercase letters(variable) - constant (unchanging value signal) WRITE
-WRITE = 'w' # overwrite the file
-APPEND = 'a'
-READ = 'r'
-READWRITE = 'w+'
+# fileName = 'greetings.csv'
+# # uppercase letters(variable) - constant (unchanging value signal) WRITE
+# WRITE = 'w' # overwrite the file
+# APPEND = 'a'
+# READ = 'r'
+# READWRITE = 'w+'
 
 # # csv = comma seperated variable / excel file
 # ###! Ex 1 ####
-myFile = open(fileName, mode = WRITE) #open() file and do what you want
-# myFile.write('Am checking if this is working. \n Can you please check for me.')
-myFile.write('Cherise 4, \n Tyris 9,\n Cherrry 4, \n Mechelle 33, \n Abiton 36, \n Travis 13, \n Noreen 65, \n Dorcas 62, \n Munashe 35, \n Tapiwa 28,\n Eric 38')
-myFile.close() #always close() the file 
-print('File successfully written')
+# myFile = open(fileName, mode = WRITE) #open() file and do what you want
+# # myFile.write('Am checking if this is working. \n Can you please check for me.')
+# myFile.write('Cherise 4, \n Tyris 9,\n Cherrry 4, \n Mechelle 33, \n Abiton 36, \n Travis 13, \n Noreen 65, \n Dorcas 62, \n Munashe 35, \n Tapiwa 28,\n Eric 38')
+# myFile.close() #always close() the file 
+# print('File successfully written')
 
 ###! Ex 2 ####
 ####Read from file
@@ -1228,18 +1228,69 @@ print('File successfully written')
 # print(firstSentence)
 
 ###! using a library csv ##!
-import csv
-#load the data file into a list
+# import csv
+# #load the data file into a list
 
-fileName = 'greetings.csv'
-READWRITE = 'w+'
+# fileName = 'greetings.csv'
+# READWRITE = 'w+'
 
-with open(fileName, mode= READWRITE) as myCSVFile: #no need to use close() if using (with - as)
-    dataFromFile = csv.reader(myCSVFile)
+# with open(fileName, mode= READWRITE) as myCSVFile: #no need to use close() if using (with - as)
+#     dataFromFile = csv.reader(myCSVFile)
 
-    for data in dataFromFile:
-        # for currentData in data: #individual rows in data file
-          # for current in currentData:
-        print(' ;'.join(data)) #';'.join() - method to join list items and specify a separator
+#     for data in dataFromFile:
+#         # for currentData in data: #individual rows in data file
+#           # for current in currentData:
+#         print(' ;'.join(data)) #';'.join() - method to join list items and specify a separator
     
+################! FUNCTIONS ##########
 
+# execute code until you get to main()
+#calling a funtion within with another function
+#function does one thing only (minimize for readability)
+##! Ex 1 ##
+# def main():
+#     names = printName()
+#     getNames(names)
+
+#     return
+
+# def printName():
+#     # print('hello Abiton') #message you want to print out
+#     names = ['Tyris','Travis','Cherise','Mechelle', 'Abiton']
+#     addName = input('Enter another family member to the list: ')
+#     names.append(addName)
+#     names.sort()
+#     return names
+
+# def getNames(names):
+#     for name in names:
+#         print(name)
+#     return #exit function 
+
+
+# main()
+
+# ##! Ex 2
+#  # function with parameters
+# def printMessage(name, msg):
+#     message = name + ', ' + msg
+#     print(message)
+#     return 
+# printMessage('Hi', 'Welcome to the world')
+
+##! Ex 3
+# print a function to simplify writing to files
+#set parameters for name of file and text
+
+def writingToFiles():
+  fileName = 'greetings.txt'
+  WRITE = 'w+'
+
+  with open(fileName, mode= WRITE) as myTXTFile:
+        myFile = myTXTFile.write('This is my handwriting to this file')
+
+        readMyFile = myTXTFile.read()
+        print(readMyFile) 
+  return myFile
+
+writingToFiles()
